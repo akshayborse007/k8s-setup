@@ -2,10 +2,10 @@ Ref: https://www.fosstechnix.com/how-to-install-kubernetes-cluster-on-ubuntu/
 user should be ubuntu:
 
 if not works below commands try :
-sudo rm /etc/containerd/config.toml
-sudo systemctl restart containerd
-kubeadm reset 
-sudo kubeadm init --pod-network-cidr 10.0.0.0/16 --ignore-preflight-errors=all
+     sudo rm /etc/containerd/config.toml
+     sudo systemctl restart containerd
+     kubeadm reset 
+     sudo kubeadm init --pod-network-cidr 10.0.0.0/16 --ignore-preflight-errors=all
 
 master:
 
