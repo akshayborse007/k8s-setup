@@ -1,7 +1,11 @@
 Ref: https://www.fosstechnix.com/how-to-install-kubernetes-cluster-on-ubuntu/
 user should be ubuntu:
 
+if not works below commands try :
+sudo rm /etc/containerd/config.toml
+sudo systemctl restart containerd
 kubeadm reset 
+sudo kubeadm init --pod-network-cidr 10.0.0.0/16 --ignore-preflight-errors=all
 
 master:
 
@@ -28,14 +32,18 @@ EOF
    13  sudo systemctl status docker.service
    14  sudo systemctl enable docker.service
    15  sudo systemctl restart docker
+   
    24  sudo rm /etc/containerd/config.toml
    25  sudo systemctl restart containerd
+   
    16  sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
    17  echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
    19  sudo apt update
    20  sudo apt-get install -y kubelet kubeadm kubectl
    21  sudo apt-mark hold kubelet kubeadm kubectl
    27  sudo kubeadm init --pod-network-cidr 10.0.0.0/16 --ignore-preflight-errors=all
+   
+   
    28  sudo mkdir -p $HOME/.kube
    29  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
    30  sudo chown $(id -u):$(id -g) $HOME/.kube/config
