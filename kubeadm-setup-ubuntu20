@@ -1,6 +1,8 @@
 Ref: https://www.fosstechnix.com/how-to-install-kubernetes-cluster-on-ubuntu/
 user should be ubuntu:
 
+kubeadm reset 
+
 master:
 
      sudo apt-get install -y     apt-transport-https     ca-certificates     curl     gnupg     lsb-release
