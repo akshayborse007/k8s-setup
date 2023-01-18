@@ -1,6 +1,9 @@
 Ref: https://www.fosstechnix.com/how-to-install-kubernetes-cluster-on-ubuntu/
 user should be ubuntu:
 
+if you want to generate kubeadm join command from master use below command in master node:
+sudo kubeadm token create --print-join-command
+
 if not works below commands try :
      sudo rm /etc/containerd/config.toml
      sudo systemctl restart containerd
